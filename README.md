@@ -33,6 +33,23 @@ A lightweight package that will read JSON data, expand and collapse JSON view ac
 
 ## <a id="Installation"> Installation
 
+Add it in your root `build.gradle` at the end of repositories:
+
+```gradle
+allprojects {
+  repositories {
+    // ...
+    maven { url 'https://jitpack.io' }
+  }
+}
+```
+
+Add the dependency
+
+```gradle
+implementation 'com.github.pokeum:jsonviewer-xml:0.0.0'
+```
+
 ## <a id="Usage"> Usage
 
 - ## <a id="Basic"> Basic
