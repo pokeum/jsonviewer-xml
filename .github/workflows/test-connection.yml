@@ -15,10 +15,10 @@ jobs:
       - name: clone repository
         uses: actions/checkout@v3
 
-      - name: "[Fastlane] set up ruby (version 2.7.5)"
+      - name: "[Fastlane] set up ruby (version 3.0.0)"
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.5
+          ruby-version: 3.0.0
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: "[Fastlane] install bundler"

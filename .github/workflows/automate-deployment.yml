@@ -41,10 +41,10 @@ jobs:
           cd $HOME/keystore
           echo "$JSONVIEWER_JKS_BASE64" | base64 --decode > jsonviewer_keystore.jks
 
-      - name: "[Fastlane] set up ruby (version 2.7.5)"
+      - name: "[Fastlane] set up ruby (version 3.0.0)"
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.5
+          ruby-version: 3.0.0
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
       - name: "[Fastlane] install bundler"
