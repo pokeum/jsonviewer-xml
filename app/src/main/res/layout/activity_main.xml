@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:orientation="vertical">
+
+<!--        <kr.pokeum.jsonviewer_xml.JsonRecyclerView-->
+<!--            android:id="@+id/jsonViewer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:text="@string/json_string_sample" />-->
+
+        <EditText
+            android:id="@+id/editJSONText"
+            style="@android:style/TextAppearance.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/edit_background"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/edit_json_text"
+            android:textColorHint="@color/edit_box_hint_color"
+            android:textColor="@color/edit_box_text_color"
+            android:inputType="textMultiLine"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/btnLoadFromText"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/amber_500"
+            android:padding="10dp"
+            android:text="@string/btn_load_from_text"
+            android:textColor="@color/black"
+            app:icon="@drawable/ic_content_paste_white_24dp"
+            app:iconTint="@color/black" />
+
+        <Button
+            android:id="@+id/btnLoadFromFile"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/load_button_bg_color"
+            android:padding="10dp"
+            android:text="@string/btn_load_from_file"
+            android:textColor="@color/load_from_file_color"
+            app:icon="@drawable/ic_attach_file_white_24dp"
+            app:iconTint="@color/load_from_file_color" />
+
+        <Button
+            android:id="@+id/btnLoadFromURL"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/load_button_bg_color"
+            android:padding="10dp"
+            android:text="@string/btn_load_from_url"
+            android:textColor="@color/load_from_url_color"
+            app:icon="@drawable/ic_web_white_24dp"
+            app:iconTint="@color/load_from_url_color" />
+
+    </LinearLayout>
+</ScrollView>

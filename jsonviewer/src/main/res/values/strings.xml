@@ -1,0 +1,16 @@
+<resources>
+    <string name="json_key_label">key</string>
+    <string name="json_primitive_key_label">
+        <font color="#000000">key</font><font color="#000000"> : </font><font color="#888888">value</font>
+    </string>
+    <string name="json_null_key_label">
+        <font color="#000000">key</font><font color="#000000"> : </font><font color="#888888">NULL</font>
+    </string>
+
+    <string name="json_object_key_description_label">{ }</string>
+    <string name="json_array_key_description_label">[ ]</string>
+    <string name="json_number_key_description_label">123</string>
+    <string name="json_string_key_description_label">ABC</string>
+    <string name="json_boolean_key_description_label">T/F</string>
+    <string name="json_null_key_description_label">\?</string>
+</resources>

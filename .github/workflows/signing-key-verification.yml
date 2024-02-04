@@ -1,0 +1,36 @@
+name: Signing Key Verification
+
+on:
+  workflow_dispatch:  # Manual Events
+
+jobs:
+  signing-key-verification:
+    runs-on: ubuntu-latest
+
+    env:
+      JSONVIEWER_JKS_BASE64: ${{ secrets.JSONVIEWER_JKS_BASE64 }}
+
+      JSONVIEWER_KEYSTORE_ALIAS: ${{ secrets.JSONVIEWER_KEYSTORE_ALIAS }}
+      JSONVIEWER_KEY_PASSWORD: ${{ secrets.JSONVIEWER_KEY_PASSWORD }}
+      JSONVIEWER_STORE_PASSWORD: ${{ secrets.JSONVIEWER_STORE_PASSWORD }}
+
+    steps:
+      - name: clone repository
+        uses: actions/checkout@v3
+
+      - name: "[Signing Release APK 🔑] set system environment variables"
+        run: |
+          export JSONVIEWER_KEYSTORE_ALIAS="$JSONVIEWER_KEYSTORE_ALIAS"
+          export JSONVIEWER_KEY_PASSWORD="$JSONVIEWER_KEY_PASSWORD"
+          export JSONVIEWER_STORE_PASSWORD="$JSONVIEWER_STORE_PASSWORD"
+          
+      - name: "[Signing Release APK 🔑] upload jks file"
+        run: |
+          mkdir $HOME/keystore
+          cd $HOME/keystore
+          echo "$JSONVIEWER_JKS_BASE64" | base64 --decode > jsonviewer_keystore.jks
+          
+      - name: Signing Key Verification
+        run: |
+          ./gradlew clean
+          ./gradlew app:assembleRelease

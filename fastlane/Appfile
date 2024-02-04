@@ -1,0 +1,2 @@
+json_key_file("google-cloud-json-key.json")
+package_name("kr.pokeum.jsonviewer.app")

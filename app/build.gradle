@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.appdistribution'
+}
+
+def majorNumber = 1
+def minorNumber = 0
+def patchNumber = 1
+
+def versionNameApp = "$majorNumber.$minorNumber.$patchNumber"
+def versionCodeBase = majorNumber * 100000 + minorNumber * 1000 + patchNumber * 10
+def versionCodeApp = versionCodeBase + 1
+
+android {
+    compileSdkVersion defaultCompileSdkVersion
+    buildToolsVersion defaultBuildToolsVersion
+
+    defaultConfig {
+        applicationId "kr.pokeum.jsonviewer.app"
+        minSdkVersion defaultMinSdkVersion
+        targetSdkVersion defaultTargetSdkVersion
+        versionCode versionCodeApp
+        versionName versionNameApp
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias System.getenv("JSONVIEWER_KEYSTORE_ALIAS")
+            keyPassword System.getenv("JSONVIEWER_KEY_PASSWORD")
+            storeFile file(System.getenv("HOME") + "/keystore/jsonviewer_keystore.jks")
+            storePassword System.getenv("JSONVIEWER_STORE_PASSWORD")
+        }
+    }
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility javaCompileVersion
+        targetCompatibility javaCompileVersion
+    }
+    kotlinOptions {
+        jvmTarget = jvmTarget
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation 'com.github.pokeum:jsonviewer-xml:0.0.0'
+
+    implementation stdlib.kotlin
+    implementation androidx.core
+    implementation androidx.appcompat
+    implementation androidx.constraintLayout
+    implementation material.material
+    implementation coroutine.core
+    implementation coroutine.android
+    implementation network.okhttp
+
+    implementation platform(firebase.bom)
+
+    testImplementation test.junit
+
+    androidTestImplementation androidTest.junit
+    androidTestImplementation androidTest.espressoCore
+}

@@ -1,0 +1,102 @@
+name: Automate Deployment
+
+on:
+  workflow_dispatch:  # Manual Events
+#  pull_request:
+#    types: [closed]
+#    branches:
+#      - main
+
+jobs:
+  automate-deployment:
+    runs-on: ubuntu-latest
+
+    env:
+      JSONVIEWER_JKS_BASE64: ${{ secrets.JSONVIEWER_JKS_BASE64 }}
+
+      JSONVIEWER_KEYSTORE_ALIAS: ${{ secrets.JSONVIEWER_KEYSTORE_ALIAS }}
+      JSONVIEWER_KEY_PASSWORD: ${{ secrets.JSONVIEWER_KEY_PASSWORD }}
+      JSONVIEWER_STORE_PASSWORD: ${{ secrets.JSONVIEWER_STORE_PASSWORD }}
+
+      GOOGLE_CLOUD_JSON_KEY: ${{ secrets.GOOGLE_CLOUD_JSON_KEY }}
+      JSON_KEY_PATH: ${{ 'google-cloud-json-key.json' }}            # fastlane/Appfile
+
+      BUILD_CONFIG_FILE_PATH: ${{ 'app/build/generated/source/buildConfig/release/kr/pokeum/app/BuildConfig.java' }}
+
+      SLACK_CHANNEL: ${{ 'jsonviewer-release' }}
+
+    steps:
+      - name: clone repository
+        uses: actions/checkout@v3
+
+      - name: "[Signing Release APK 🔑] set system environment variables"
+        run: |
+          export JSONVIEWER_KEYSTORE_ALIAS="$JSONVIEWER_KEYSTORE_ALIAS"
+          export JSONVIEWER_KEY_PASSWORD="$JSONVIEWER_KEY_PASSWORD"
+          export JSONVIEWER_STORE_PASSWORD="$JSONVIEWER_STORE_PASSWORD"
+          
+      - name: "[Signing Release APK 🔑] upload jks file"
+        run: |
+          mkdir $HOME/keystore
+          cd $HOME/keystore
+          echo "$JSONVIEWER_JKS_BASE64" | base64 --decode > jsonviewer_keystore.jks
+
+      - name: "[Fastlane] set up ruby (version 2.7.5)"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.5
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      - name: "[Fastlane] install bundler"
+        run: gem install bundler && bundle install
+
+      - name: "[Fastlane] upload json key file"
+        run: echo "$GOOGLE_CLOUD_JSON_KEY" > "$JSON_KEY_PATH"
+
+      - name: "[Fastlane] fetch your app metadata"
+        run: bundle exec fastlane supply init
+
+      - name: "[Fastlane] run test"
+        run: bundle exec fastlane test
+
+      - name: "[Fastlane] publish app to google play store"
+        #run: bundle exec fastlane deploy
+        run: bundle exec fastlane deploy_aab
+
+      - name: "[Fastlane][Post 🧹] upload json key file"
+        run: rm "$JSON_KEY_PATH"
+
+      - name: "[Get App Version] get and save version"
+        run: cat "$BUILD_CONFIG_FILE_PATH" | grep VERSION_NAME | sed 's/[^[:digit:].]//g' > VERSION
+        if: always()
+
+      - name: "[Get App Version] read version file"
+        id: read_version
+        run: echo "::set-output name=version::$(cat VERSION)"
+        if: always()
+
+      - name: "[Get Version] commit version file"
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+        if: success()
+
+      - name: "[Slack] send slack notification (success 🚀)"
+        uses: Brymastr/slack-action@v1
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          channel-id: '${{ env.SLACK_CHANNEL }}'
+          template: './slack/success.json'
+          version: ${{ steps.read_version.outputs.version }}
+        if: success()
+
+      - name: "[Slack] send slack notification (fail 😢)"
+        uses: Brymastr/slack-action@v1
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          channel-id: '${{ env.SLACK_CHANNEL }}'
+          template: './slack/fail.json'
+          version: ${{ steps.read_version.outputs.version }}
+        if: failure()

@@ -1,0 +1,24 @@
+{
+  "attachments": [
+    {
+      "color": "#0000FF",
+      "blocks": [
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Publish `jsonviewer` To Google Play Store*"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "plain_text",
+            "text": "version {{ version }} :rocket:",
+            "emoji": true
+          }
+        }
+      ]
+    }
+  ]
+}

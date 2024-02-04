@@ -1,0 +1,73 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+}
+
+def majorNumber = 0
+def minorNumber = 0
+def patchNumber = 0
+
+def versionNameSdk = "$majorNumber.$minorNumber.$patchNumber"
+
+android {
+    namespace 'kr.pokeum.jsonviewer_xml'
+    compileSdkVersion defaultCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion defaultMinSdkVersion
+        targetSdkVersion defaultTargetSdkVersion
+        versionCode 1
+        versionName versionNameSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+        }
+    }
+    compileOptions {
+        sourceCompatibility javaCompileVersion
+        targetCompatibility javaCompileVersion
+    }
+    kotlinOptions {
+        jvmTarget = jvmTarget
+    }
+}
+
+dependencies {
+
+    implementation androidx.core
+    implementation androidx.appcompat
+    implementation androidx.constraintLayout
+    implementation material.material
+
+    testImplementation test.junit
+    testImplementation test.json
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.pokeum'
+            artifactId = 'jsonviewer-xml'
+            version = versionNameSdk
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+}

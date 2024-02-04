@@ -1,0 +1,24 @@
+{
+  "attachments": [
+    {
+      "color": "#FF0000",
+      "blocks": [
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "*Github Action Failed!*"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "plain_text",
+            "text": "version {{ version }} :cry:",
+            "emoji": true
+          }
+        }
+      ]
+    }
+  ]
+}

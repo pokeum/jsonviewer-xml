@@ -1,0 +1,5 @@
+rootProject.name = "jsonviewer-xml"
+include ':jsonviewer'
+
+if (!System.env.JITPACK)
+    include ':app'

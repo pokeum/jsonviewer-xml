@@ -1,0 +1,31 @@
+name: Test Connection
+
+on:
+  workflow_dispatch:  # Manual Events
+
+jobs:
+  test-connection:
+    runs-on: ubuntu-latest
+
+    env:
+      GOOGLE_CLOUD_JSON_KEY: ${{ secrets.GOOGLE_CLOUD_JSON_KEY }}
+      JSON_KEY_PATH: ${{ 'google-cloud-json-key.json' }}
+      
+    steps:
+      - name: clone repository
+        uses: actions/checkout@v3
+
+      - name: "[Fastlane] set up ruby (version 2.7.5)"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.5
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+      - name: "[Fastlane] install bundler"
+        run: gem install bundler && bundle install
+
+      - name: "[Fastlane] upload json key file"
+        run: echo "$GOOGLE_CLOUD_JSON_KEY" > "$JSON_KEY_PATH"
+
+      - name: "[Fastlane] test the connection to google play store"
+        run: bundle exec fastlane run validate_play_store_json_key json_key:"$JSON_KEY_PATH"

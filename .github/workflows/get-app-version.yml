@@ -1,0 +1,33 @@
+name: Get App Version
+
+on:
+  workflow_dispatch:  # Manual Events
+
+jobs:
+  get-app-version:
+    runs-on: ubuntu-latest
+
+    env:
+      BUILD_CONFIG_FILE_PATH: ${{ 'app/build/generated/source/buildConfig/debug/kr/pokeum/app/BuildConfig.java' }}
+ 
+    steps:
+      - name: clone repo
+        uses: actions/checkout@v3
+ 
+      - name: setup java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+          cache: 'gradle'
+
+      - name: build jsonviewer app
+        run: ./gradlew app:assembleDebug
+
+      - name: get and save version
+        run: cat "$BUILD_CONFIG_FILE_PATH" | grep VERSION_NAME | sed 's/[^[:digit:].]//g' > VERSION
+
+      - name: commit version file
+        uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions

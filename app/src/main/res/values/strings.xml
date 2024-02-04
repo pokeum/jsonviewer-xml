@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">json viewer</string>
+
+    <string name="edit_json_text">Paste Your JSON Text Here</string>
+    <string name="btn_load_from_text">Load from text</string>
+    <string name="btn_load_from_file">Load from file</string>
+    <string name="btn_load_from_url">Load from URL</string>
+
+    <string name="dialog_load_from_url_title">Load JSON from URL</string>
+    <string name="dialog_load_from_url_hint">Enter URL</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+
+    <string name="json_string_sample">
+        {
+            \"name\": \"John Doe\",
+            \"age\": 30,
+            \"address\": {
+                \"street\": \"123 Main St\",
+                \"city\": \"Anytown\",
+                \"zip\": \"12345\"
+            },
+            \"contacts\": [
+                {
+                    \"type\": \"email\",
+                    \"value\": \"john.doe@example.com\"
+                },
+                {
+                    \"type\": \"phone\",
+                    \"value\": \"555-1234\"
+                }
+            ]
+        }
+    </string>
+</resources>

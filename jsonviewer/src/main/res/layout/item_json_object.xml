@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/json_header_layout_height"
+        android:background="?selectableItemBackground"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/arrowImage"
+            android:layout_width="@dimen/json_arrow_icon_layout_width"
+            android:layout_height="@dimen/json_arrow_icon_layout_height"
+            android:layout_marginLeft="@dimen/json_key_margin_start"
+            android:layout_marginStart="@dimen/json_key_margin_start"
+            app:srcCompat="@drawable/ic_arrow_white_24dp"
+            app:tint="@color/red_500"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/keyDescriptionLayout"
+            android:layout_width="@dimen/json_key_description_layout_width"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/arrowImage"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/keyDescriptionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/json_object_key_description_label"
+                android:textSize="@dimen/json_key_description_label_size"
+                android:textColor="@color/green_500"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/keyLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/json_key_margin_start"
+            android:layout_marginStart="@dimen/json_key_margin_start"
+            android:textSize="@dimen/json_key_label_size"
+            android:textColor="@color/jv_object_key_color"
+            android:textStyle="bold"
+            tools:text="@string/json_key_label"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/keyDescriptionLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/expandableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout" >
+
+        <View
+            android:layout_width="@dimen/json_divider_layout_width"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/json_divider_margin_start"
+            android:layout_marginStart="@dimen/json_divider_margin_start"
+            android:background="@color/jv_divider_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/childRecyclerView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/childRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/json_elements_margin_start"
+            android:layout_marginStart="@dimen/json_elements_margin_start"
+            tools:itemCount="10"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
