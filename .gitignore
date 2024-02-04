@@ -1,7 +1,7 @@
 *.iml
 .gradle
-.idea
 /local.properties
+/.idea
 .DS_Store
 /build
 /captures
@@ -9,7 +9,12 @@
 .cxx
 local.properties
 
-.project
-.settings/
+Gemfile.lock
+fastlane/metadata
+fastlane/README.md
+fastlane/report.xml
 
-/app/release/
+/.bundle
+/vendor
+/.settings
+/.project
