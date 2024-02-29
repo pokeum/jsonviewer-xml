@@ -1,6 +1,6 @@
 # Android JSON Viewer
 
-[![Generic badge](https://img.shields.io/badge/jitpack-v0.0.0-darkyellow?logo=jitpack&logoColor=white.svg)](https://jitpack.io/#pokeum/jsonviewer-xml/)
+[![Generic badge](https://img.shields.io/badge/jitpack-v0.0.1-darkyellow?logo=jitpack&logoColor=white.svg)](https://jitpack.io/#pokeum/jsonviewer-xml/)
 [![Generic badge](https://img.shields.io/badge/Google_Play-jsonviewer-lightblue?logo=googlePlay&logoColor=white)](https://play.google.com/store/apps/details?id=kr.pokeum.jsonviewer.app)
 
 ---
@@ -56,7 +56,7 @@ allprojects {
 Add the dependency
 
 ```gradle
-implementation 'com.github.pokeum:jsonviewer-xml:0.0.0'
+implementation 'com.github.pokeum:jsonviewer-xml:0.0.1'
 ```
 
 ## <a id="usage"> Usage
