@@ -21,7 +21,7 @@
             android:layout_marginLeft="@dimen/json_key_margin_start"
             android:layout_marginStart="@dimen/json_key_margin_start"
             app:srcCompat="@drawable/ic_arrow_white_24dp"
-            app:tint="@color/red_500"
+            app:tint="@color/jv_arrow_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
                 android:layout_gravity="center"
                 android:text="@string/json_array_key_description_label"
                 android:textSize="@dimen/json_key_description_label_size"
-                android:textColor="@color/green_500"
+                android:textColor="@color/jv_bracket_color"
                 android:textStyle="bold" />
 
         </FrameLayout>

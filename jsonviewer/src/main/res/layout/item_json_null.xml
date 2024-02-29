@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:text="@string/json_null_key_description_label"
             android:textSize="@dimen/json_key_description_label_size"
-            android:textColor="@color/blue_500"
+            android:textColor="@color/jv_type_color"
             android:textStyle="bold" />
 
     </FrameLayout>
