@@ -17,7 +17,4 @@
     <color name="jv_key_color">@color/white</color>
     <color name="jv_value_color">@color/gray</color>
     <color name="jv_splitter_color">@color/white</color>
-
-    <color name="jv_array_index_color">@color/light_gray</color>
-    <color name="jv_object_key_color">@color/light_gray</color>
 </resources>

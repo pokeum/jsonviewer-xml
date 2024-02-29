@@ -19,7 +19,7 @@ import kr.pokeum.jsonviewer_xml.viewholder.JsonPrimitiveViewHolder
 class JsonViewerAdapter(
     jsonElement: JsonElement? = null,
     recyclerViewPool: RecyclerView.RecycledViewPool? = null
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+) : BaseJsonViewerAdapter<RecyclerView.ViewHolder>() {
 
     private val elements: MutableList<JsonElement>
     private val recyclerViewPool: RecyclerView.RecycledViewPool

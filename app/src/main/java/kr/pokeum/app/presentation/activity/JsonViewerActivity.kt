@@ -41,7 +41,8 @@ class JsonViewerActivity : AppCompatActivity() {
     private fun initRecyclerView() {
 
         jsonElement?.let {
-            binding.jsonRecyclerView.adapter = JsonViewerAdapter(it)
+            val adapter = JsonViewerAdapter(it)
+            binding.jsonRecyclerView.adapter = adapter
         }
     }
 
