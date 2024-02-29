@@ -12,12 +12,11 @@
     <color name="green_500">#FF4CAF50</color>
 
     <!-- Json Viewer -->
-    <color name="jv_divider_color">#1E000000</color>
-
     <color name="jv_key_color">@color/black</color>
     <color name="jv_value_color">@color/gray</color>
     <color name="jv_splitter_color">@color/black</color>
-
-    <color name="jv_array_index_color">@color/dark_gray</color>
-    <color name="jv_object_key_color">@color/dark_gray</color>
+    <color name="jv_type_color">@color/blue_500</color>
+    <color name="jv_arrow_color">@color/red_500</color>
+    <color name="jv_bracket_color">@color/green_500</color>
+    <color name="jv_divider_color">#1E000000</color>
 </resources>

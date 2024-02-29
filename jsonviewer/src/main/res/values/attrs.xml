@@ -2,5 +2,12 @@
 <resources>
     <declare-styleable name="JsonRecyclerView">
         <attr name="text" format="string" />
+        <attr name="keyColor" format="color" />
+        <attr name="valueColor" format="color" />
+        <attr name="splitterColor" format="color" />
+        <attr name="typeColor" format="color" />
+        <attr name="arrowColor" format="color" />
+        <attr name="bracketColor" format="color" />
+        <attr name="dividerColor" format="color" />
     </declare-styleable>
 </resources>

@@ -2,6 +2,7 @@ package kr.pokeum.jsonviewer_xml.viewholder
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import kr.pokeum.jsonviewer_xml.adapter.BaseJsonViewerAdapter
 import kr.pokeum.jsonviewer_xml.databinding.ItemJsonNullBinding
 import kr.pokeum.jsonviewer_xml.model.JsonNull
 import kr.pokeum.jsonviewer_xml.util.fromHtml
@@ -22,6 +23,13 @@ internal class JsonNullViewHolder(
                 view = binding.root
             )
         )
+
+        setStyle()
+    }
+
+    private fun setStyle() {
+        // COLOR
+        binding.keyDescriptionLabel.setTextColor(BaseJsonViewerAdapter.TYPE_COLOR.getColor(binding.root))
     }
 
     companion object {

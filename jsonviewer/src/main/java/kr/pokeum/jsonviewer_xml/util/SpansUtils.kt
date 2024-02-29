@@ -6,8 +6,7 @@ import android.text.Html.FROM_HTML_MODE_LEGACY
 import android.text.Spanned
 import android.view.View
 import androidx.annotation.ColorInt
-import androidx.core.content.ContextCompat
-import kr.pokeum.jsonviewer_xml.R
+import kr.pokeum.jsonviewer_xml.adapter.BaseJsonViewerAdapter
 
 internal fun fromHtml(htmlText: String): Spanned {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -21,9 +20,9 @@ internal fun keyValueHtmlGenerator(
     splitter: String,
     view: View, /* Support dark mode */
 ): String {
-    return textColorHtmlGenerator(key, ContextCompat.getColor(view.context, R.color.jv_key_color)) +
-            textColorHtmlGenerator(splitter, ContextCompat.getColor(view.context, R.color.jv_splitter_color)) +
-            textColorHtmlGenerator(value, ContextCompat.getColor(view.context, R.color.jv_value_color))
+    return textColorHtmlGenerator(key, BaseJsonViewerAdapter.KEY_COLOR.getColor(view)) +
+            textColorHtmlGenerator(splitter, BaseJsonViewerAdapter.SPLITTER_COLOR.getColor(view)) +
+            textColorHtmlGenerator(value, BaseJsonViewerAdapter.VALUE_COLOR.getColor(view))
 }
 
 /**
