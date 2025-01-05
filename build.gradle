@@ -6,7 +6,7 @@ buildscript {
         defaultBuildToolsVersion    = "30.0.3"
         defaultCompileSdkVersion    = 33
         defaultTargetSdkVersion     = 33
-        defaultMinSdkVersion        = 16
+        defaultMinSdkVersion        = 19
         composeMinSdkVersion        = 21   // API level 21 or higher
 
         versions = [

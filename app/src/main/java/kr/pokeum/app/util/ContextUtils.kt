@@ -2,23 +2,17 @@ package kr.pokeum.app.util
 
 import android.content.Context
 import android.net.Uri
-import java.io.*
+import java.io.BufferedReader
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.io.InputStreamReader
 
-@Throws(IOException::class)
-fun Context.readFileFromUri(uri: Uri): String? {
-    val inputStream = contentResolver.openInputStream(uri)
-    return inputStream?.let { inputStream ->
-        val reader = BufferedReader(InputStreamReader(inputStream))
-        val stringBuilder = StringBuilder()
-        var line: String?
-        while (reader.readLine().also { line = it } != null) {
-            stringBuilder.append(line)
-        }
-        inputStream.close()
-        stringBuilder.toString()
-    }
-}
-
+/**
+ * Reads the contents of a file from assets
+ */
 @Throws(IOException::class)
 fun Context.readAssetsFile(filename: String): String {
     val inputStream: InputStream = assets.open(filename)
@@ -30,6 +24,24 @@ fun Context.readAssetsFile(filename: String): String {
     }
     inputStream.close()
     return stringBuilder.toString()
+}
+
+/**
+ * Reads the contents of a file from the given Content URI
+ */
+@Throws(IOException::class)
+fun Context.readFileFromUri(uri: Uri): String? {
+    val inputStream = contentResolver.openInputStream(uri)
+    return inputStream?.let { istream ->
+        val reader = BufferedReader(InputStreamReader(istream))
+        val stringBuilder = StringBuilder()
+        var line: String?
+        while (reader.readLine().also { line = it } != null) {
+            stringBuilder.append(line)
+        }
+        istream.close()
+        stringBuilder.toString()
+    }
 }
 
 @Throws(IOException::class)

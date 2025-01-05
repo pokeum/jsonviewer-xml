@@ -20,13 +20,13 @@ class JsonViewerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = TITLE
+        title = getString(R.string.title)
         binding = ActivityJsonViewerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         changeActionBarColor(resources.getColor(R.color.orange))
 
-        jsonElement = jsonGenerator.generateFromCacheFile(CACHE_JSON_FILE)
+        jsonElement = jsonGenerator.getCacheData()
         if (savedInstanceState != null) {
             jsonElement = savedInstanceState.getParcelable(KEY_JSON_ELEMENT)
         }
@@ -47,10 +47,6 @@ class JsonViewerActivity : AppCompatActivity() {
     }
 
     companion object {
-
-        private const val TITLE = "Json Viewer"
-        private const val CACHE_JSON_FILE = "cache.json"
-
         private const val KEY_JSON_ELEMENT = "json_element"
 
         fun newIntent(context: Context): Intent {
