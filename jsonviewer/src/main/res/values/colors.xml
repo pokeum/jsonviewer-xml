@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
-
-    <color name="light_gray">#FFCCCCCC</color>
+    <color name="white">#FFFFFFFF</color>
     <color name="gray">#FF888888</color>
-    <color name="dark_gray">#FF424242</color>
-
-    <color name="red_500">#FFF44336</color>
-    <color name="blue_500">#FF2196F3</color>
-    <color name="green_500">#FF4CAF50</color>
+    <color name="red">#FFF44336</color>
+    <color name="blue">#FF2196F3</color>
+    <color name="green">#FF4CAF50</color>
 
     <!-- Json Viewer -->
     <color name="jv_key_color">@color/black</color>
     <color name="jv_value_color">@color/gray</color>
     <color name="jv_splitter_color">@color/black</color>
-    <color name="jv_type_color">@color/blue_500</color>
-    <color name="jv_arrow_color">@color/red_500</color>
-    <color name="jv_bracket_color">@color/green_500</color>
+    <color name="jv_type_color">@color/blue</color>
+    <color name="jv_arrow_color">@color/red</color>
+    <color name="jv_bracket_color">@color/green</color>
     <color name="jv_divider_color">#1E000000</color>
 </resources>
