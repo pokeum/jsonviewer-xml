@@ -3,7 +3,6 @@
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/pokeumcho)
 
 [![Generic badge](https://img.shields.io/badge/jitpack-v0.0.1-darkyellow?logo=jitpack&logoColor=white.svg)](https://jitpack.io/#pokeum/jsonviewer-xml/)
-[![Generic badge](https://img.shields.io/badge/Google_Play-jsonviewer-lightblue?logo=googlePlay&logoColor=white)](https://play.google.com/store/apps/details?id=kr.pokeum.jsonviewer.app)
 
 ---
 
@@ -164,7 +163,7 @@ implementation 'com.github.pokeum:jsonviewer-xml:0.0.1'
 | Value | `"Alice"`, `28` |
 | Splitter | `:` |
 | Type | `ABC`, `123` |
-| Arrow | `\/` |
+| Arrow | `∨` |
 | Bracket | `[ ]`, `{ }` |
 | Divider | `│` |
 
