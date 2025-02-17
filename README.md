@@ -57,7 +57,7 @@ allprojects {
 Add the dependency
 
 ```gradle
-implementation 'com.github.pokeum:jsonviewer-xml:0.0.1'
+implementation 'com.github.pokeum:jsonviewer-xml:0.0.2'
 ```
 
 ## <a id="usage"> Usage

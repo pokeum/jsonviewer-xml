@@ -58,7 +58,8 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
-    implementation(project(":jsonviewer"))
+//    implementation(project(":jsonviewer"))
+    implementation 'com.github.pokeum:jsonviewer-xml:0.0.2'
 
     implementation stdlib.kotlin
     implementation androidx.core
