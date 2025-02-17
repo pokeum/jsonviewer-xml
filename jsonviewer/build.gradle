@@ -6,19 +6,20 @@ plugins {
 
 def majorNumber = 0
 def minorNumber = 0
-def patchNumber = 0
+def patchNumber = 2
 
-def versionNameSdk = "$majorNumber.$minorNumber.$patchNumber"
+def VERSION_NAME = "$majorNumber.$minorNumber.$patchNumber"
+def VERSION_CODE = majorNumber * 100000 + minorNumber * 1000 + patchNumber * 10
 
 android {
-    namespace 'kr.pokeum.jsonviewer_xml'
-    compileSdkVersion defaultCompileSdkVersion
+    namespace           "kr.pokeum.jsonviewer_xml"
+    compileSdkVersion   COMPILE_SDK_VERSION
 
     defaultConfig {
-        minSdkVersion defaultMinSdkVersion
-        targetSdkVersion defaultTargetSdkVersion
-        versionCode 1
-        versionName versionNameSdk
+        minSdkVersion       MIN_SDK_VERSION
+        targetSdkVersion    TARGET_SDK_VERSION
+        versionCode         VERSION_CODE
+        versionName         VERSION_NAME
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,11 +40,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility javaCompileVersion
-        targetCompatibility javaCompileVersion
+        sourceCompatibility JAVA_COMPILE_VERSION
+        targetCompatibility JAVA_COMPILE_VERSION
     }
     kotlinOptions {
-        jvmTarget = jvmTarget
+        jvmTarget = JVM_TARGET
     }
 }
 
@@ -61,9 +62,9 @@ dependencies {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.github.pokeum'
-            artifactId = 'jsonviewer-xml'
-            version = versionNameSdk
+            groupId     = "com.github.pokeum"
+            artifactId  = "jsonviewer-xml"
+            version     = VERSION_NAME
 
             afterEvaluate {
                 from components.release

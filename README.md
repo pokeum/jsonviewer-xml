@@ -2,7 +2,7 @@
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/pokeumcho)
 
-[![Generic badge](https://img.shields.io/badge/jitpack-v0.0.1-darkyellow?logo=jitpack&logoColor=white.svg)](https://jitpack.io/#pokeum/jsonviewer-xml/)
+[![Generic badge](https://img.shields.io/badge/jitpack-v0.0.2-darkyellow?logo=jitpack&logoColor=white.svg)](https://jitpack.io/#pokeum/jsonviewer-xml/)
 
 ---
 
@@ -185,12 +185,12 @@ implementation 'com.github.pokeum:jsonviewer-xml:0.0.1'
 
   ```kotlin
   recyclerView.adapter = JsonViewerAdapter(/* JsonElement */).apply {
-    setKeyColor(JVColor(/* Default Color[, Dark Mode Color] */))
-    setValueColor(JVColor(/* ... */))
-    setSplitterColor(JVColor(/* ... */))
-    setTypeColor(JVColor(/* ... */))
-    setArrowColor(JVColor(/* ... */))
-    setBracketColor(JVColor(/* ... */))
-    setDividerColor(JVColor(/* ... */))
+    setKeyColor(JsonViewerColor(/* color[, dark mode color] */))
+    setValueColor(JsonViewerColor(/* ... */))
+    setSplitterColor(JsonViewerColor(/* ... */))
+    setTypeColor(JsonViewerColor(/* ... */))
+    setArrowColor(JsonViewerColor(/* ... */))
+    setBracketColor(JsonViewerColor(/* ... */))
+    setDividerColor(JsonViewerColor(/* ... */))
   }
   ```

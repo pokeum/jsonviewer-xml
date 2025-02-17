@@ -1,13 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        javaCompileVersion          = JavaVersion.VERSION_1_8
-        jvmTarget                   = JavaVersion.VERSION_1_8.toString()
-        defaultBuildToolsVersion    = "30.0.3"
-        defaultCompileSdkVersion    = 33
-        defaultTargetSdkVersion     = 33
-        defaultMinSdkVersion        = 19
-        composeMinSdkVersion        = 21   // API level 21 or higher
+        JAVA_COMPILE_VERSION        = JavaVersion.VERSION_1_8
+        JVM_TARGET                  = JavaVersion.VERSION_1_8.toString()
+        BUILD_TOOL_VERSION          = "30.0.3"
+        COMPILE_SDK_VERSION         = 33
+        TARGET_SDK_VERSION          = 33
+        MIN_SDK_VERSION             = 19
 
         versions = [
                 androidGradlePlugin                     : "4.2.2",

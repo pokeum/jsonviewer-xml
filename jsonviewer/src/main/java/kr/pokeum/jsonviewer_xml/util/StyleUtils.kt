@@ -4,14 +4,16 @@ import android.content.res.Configuration
 import android.view.View
 import androidx.annotation.ColorInt
 
-class JVColor(
-    @ColorInt private val default: Int,
-    @ColorInt private val night: Int
+data class JsonViewerColor(
+    @ColorInt private val color: Int,
+    @ColorInt private val darkModeColor: Int? = null
 ) {
-    constructor(@ColorInt default: Int) : this(default, default)
+    internal fun getColor(view: View) =
+        if (isDarkMode(view)) { darkModeColor ?: color } else { color }
 
-    internal fun getColor(view: View) = when (view.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
-        Configuration.UI_MODE_NIGHT_YES -> night
-        else -> default
-    }
+    private fun isDarkMode(view: View): Boolean =
+        when (view.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_YES -> true
+            else -> false
+        }
 }

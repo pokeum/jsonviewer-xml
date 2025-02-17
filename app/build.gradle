@@ -9,46 +9,45 @@ def majorNumber = 1
 def minorNumber = 1
 def patchNumber = 0
 
-def versionNameApp = "$majorNumber.$minorNumber.$patchNumber"
-def versionCodeBase = majorNumber * 100000 + minorNumber * 1000 + patchNumber * 10
-def versionCodeApp = versionCodeBase + 1
+def VERSION_NAME = "$majorNumber.$minorNumber.$patchNumber"
+def VERSION_CODE = majorNumber * 100000 + minorNumber * 1000 + patchNumber * 10
 
 android {
-    compileSdkVersion defaultCompileSdkVersion
-    buildToolsVersion defaultBuildToolsVersion
+    compileSdkVersion   COMPILE_SDK_VERSION
+    buildToolsVersion   BUILD_TOOL_VERSION
 
     defaultConfig {
-        applicationId "kr.pokeum.jsonviewer.app"
-        minSdkVersion defaultMinSdkVersion
-        targetSdkVersion defaultTargetSdkVersion
-        versionCode versionCodeApp
-        versionName versionNameApp
+        applicationId       "kr.pokeum.jsonviewer.app"
+        minSdkVersion       MIN_SDK_VERSION
+        targetSdkVersion    TARGET_SDK_VERSION
+        versionCode         VERSION_CODE
+        versionName         VERSION_NAME
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
         release {
-            keyAlias System.getenv("JSONVIEWER_KEYSTORE_ALIAS")
-            keyPassword System.getenv("JSONVIEWER_KEY_PASSWORD")
-            storeFile file(System.getenv("HOME") + "/keystore/jsonviewer_keystore.jks")
-            storePassword System.getenv("JSONVIEWER_STORE_PASSWORD")
+            keyAlias        System.getenv("JSONVIEWER_KEYSTORE_ALIAS")
+            keyPassword     System.getenv("JSONVIEWER_KEY_PASSWORD")
+            storeFile       file(System.getenv("HOME") + "/keystore/jsonviewer_keystore.jks")
+            storePassword   System.getenv("JSONVIEWER_STORE_PASSWORD")
         }
     }
     buildTypes {
         release {
-            debuggable false
-            minifyEnabled true
-            signingConfig signingConfigs.release
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable      false
+            minifyEnabled   true
+            signingConfig   signingConfigs.release
+            proguardFiles   getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
-        sourceCompatibility javaCompileVersion
-        targetCompatibility javaCompileVersion
+        sourceCompatibility JAVA_COMPILE_VERSION
+        targetCompatibility JAVA_COMPILE_VERSION
     }
     kotlinOptions {
-        jvmTarget = jvmTarget
+        jvmTarget = JVM_TARGET
     }
     buildFeatures {
         viewBinding true
@@ -59,7 +58,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
-    implementation 'com.github.pokeum:jsonviewer-xml:0.0.1'
+    implementation(project(":jsonviewer"))
 
     implementation stdlib.kotlin
     implementation androidx.core

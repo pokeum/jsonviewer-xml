@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.pokeum.jsonviewer_xml.adapter.JsonViewerAdapter
-import kr.pokeum.jsonviewer_xml.util.JVColor
+import kr.pokeum.jsonviewer_xml.util.JsonViewerColor
 
 @Suppress("DEPRECATION")
 class JsonRecyclerView
@@ -46,6 +46,7 @@ constructor(
         setText(text)
     }
 
+    @Suppress("MemberVisibilityCanBePrivate")
     fun setText(text: String) {
         this.text = text
 
@@ -55,13 +56,13 @@ constructor(
         } catch (_: Throwable) {
             jsonParser.parse(DEFAULT_TEXT)
         }).apply {
-            setKeyColor(JVColor(keyColor))
-            setValueColor(JVColor(valueColor))
-            setSplitterColor(JVColor(splitterColor))
-            setTypeColor(JVColor(typeColor))
-            setArrowColor(JVColor(arrowColor))
-            setBracketColor(JVColor(bracketColor))
-            setDividerColor(JVColor(dividerColor))
+            setKeyColor(JsonViewerColor(keyColor))
+            setValueColor(JsonViewerColor(valueColor))
+            setSplitterColor(JsonViewerColor(splitterColor))
+            setTypeColor(JsonViewerColor(typeColor))
+            setArrowColor(JsonViewerColor(arrowColor))
+            setBracketColor(JsonViewerColor(bracketColor))
+            setDividerColor(JsonViewerColor(dividerColor))
         }
     }
 

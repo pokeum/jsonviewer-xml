@@ -2,6 +2,9 @@ package kr.pokeum.app.util
 
 import android.content.Context
 import android.net.Uri
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
@@ -80,3 +83,7 @@ fun Context.writeCacheFile(bytesToWrite: ByteArray, filename: String) {
         e.printStackTrace()
     }
 }
+
+@ColorInt
+fun Context.getColorInt(@ColorRes resourceId: Int): Int =
+    ContextCompat.getColor(this, resourceId)
