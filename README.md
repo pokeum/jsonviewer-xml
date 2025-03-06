@@ -2,7 +2,7 @@
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/pokeumcho)
 
-[![Generic badge](https://img.shields.io/badge/jitpack-v0.0.2-darkyellow?logo=jitpack&logoColor=white.svg)](https://jitpack.io/#pokeum/jsonviewer-xml/)
+[![Generic badge](https://img.shields.io/badge/jitpack-v1.0.0-darkyellow?logo=jitpack&logoColor=white.svg)](https://jitpack.io/#pokeum/jsonviewer-xml/)
 
 ---
 
@@ -49,7 +49,7 @@ allprojects {
 Add the dependency
 
 ```gradle
-implementation 'com.github.pokeum:jsonviewer-xml:0.0.2'
+implementation 'com.github.pokeum:jsonviewer-xml:1.0.0'
 ```
 
 ## Usage
