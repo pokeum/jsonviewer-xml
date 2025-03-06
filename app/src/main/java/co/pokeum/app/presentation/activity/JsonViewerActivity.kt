@@ -31,6 +31,7 @@ class JsonViewerActivity : AppCompatActivity() {
             jsonElement = savedInstanceState.getParcelable(KEY_JSON_ELEMENT)
         }
         initRecyclerView()
+        initFloatingActionButtons()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -39,10 +40,20 @@ class JsonViewerActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-
         jsonElement?.let {
             val adapter = JsonViewerAdapter(it)
             binding.jsonRecyclerView.adapter = adapter
+        }
+    }
+
+    private fun initFloatingActionButtons() {
+        val jsonViewerAdapter = binding.jsonRecyclerView.adapter as JsonViewerAdapter
+
+        binding.expandAllButton.setOnClickListener {
+            jsonViewerAdapter.expandAll()
+        }
+        binding.collapseAllButton.setOnClickListener {
+            jsonViewerAdapter.collapseAll()
         }
     }
 

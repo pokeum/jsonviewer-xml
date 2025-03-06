@@ -19,13 +19,23 @@
         tools:listitem="@layout/item_json_object" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/shareButton"
+        android:id="@+id/collapseAllButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_share_24"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:srcCompat="@drawable/ic_unfold_less_white_24dp"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/expandAllButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/collapseAllButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_unfold_more_white_24dp"
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

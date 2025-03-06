@@ -12,20 +12,12 @@ class JsonObject(
 
     override fun expandAll() {
         expanded = true
-        for (element in elements) {
-            if (element is Expandable) {
-                element.expandAll()
-            }
-        }
+        elements.filterIsInstance<Expandable>().forEach { it.expandAll() }
     }
 
     override fun collapseAll() {
         expanded = false
-        for (element in elements) {
-            if (element is Expandable) {
-                element.collapseAll()
-            }
-        }
+        elements.filterIsInstance<Expandable>().forEach { it.collapseAll() }
     }
 
     constructor(inParcel: Parcel) : this(

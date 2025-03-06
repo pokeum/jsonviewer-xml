@@ -66,6 +66,14 @@ constructor(
         }
     }
 
+    fun expandAll() {
+        (adapter as JsonViewerAdapter).expandAll()
+    }
+
+    fun collapseAll() {
+        (adapter as JsonViewerAdapter).collapseAll()
+    }
+
     companion object {
         private const val DEFAULT_TEXT = "{}"
     }

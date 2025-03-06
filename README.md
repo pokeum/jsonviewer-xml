@@ -24,7 +24,7 @@ https://github.com/pokeum/jsonviewer-xml/assets/102505472/e2f260f0-cc28-4607-9ec
 
 ---
 
-**Easiest way to format Json String**
+### Easiest way to format Json String
 
 ```xml
 <co.pokeum.jsonviewer.xml.JsonRecyclerView
@@ -33,15 +33,7 @@ https://github.com/pokeum/jsonviewer-xml/assets/102505472/e2f260f0-cc28-4607-9ec
   app:text="{PUT_YOUR_JSON_STRING}" />
 ```
 
-## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
-    - [Basic](#basic)
-    - [Advance](#advance)
-- [Custom Styles](#styles)
-
-
-## <a id="installation"> Installation
+## Installation
 
 Add it in your root `build.gradle` at the end of repositories:
 
@@ -60,100 +52,102 @@ Add the dependency
 implementation 'com.github.pokeum:jsonviewer-xml:0.0.2'
 ```
 
-## <a id="usage"> Usage
+## Usage
 
-- ## <a id="basic"> Basic
+### JsonParser.parse()
 
-  ### JsonParser.parse()
-  
-  Convert `String` into a `JsonElement` object
+Convert `String` into a `JsonElement` object
 
-  **Example - Parsing JSON**
-  ```kotlin
-  val jsonString = "{ \"abc\": \"def\",\"xyz\": 123 }"
+**Example - Parsing JSON**
+
+```kotlin
+val jsonString = "{ \"abc\": \"def\",\"xyz\": 123 }"
             
-  val jsonParser = JsonParser.Builder().build()
-  val jsonElement: JsonElement? = try {
-    jsonParser.parse(jsonString)
-  }
-  // Raise a JSONException if it is not a JSONObject or JSONArray.
-  catch (e: JSONException) { null }
-  ```
+val jsonParser = JsonParser.Builder().build()
+val jsonElement: JsonElement? = try {
+  jsonParser.parse(jsonString)
+}
+// Raise a JSONException if it is not a JSONObject or JSONArray.
+catch (e: JSONException) { null }
+```
 
-  ### Display JSON
+### Use JsonRecyclerView to display JSON
 
-  #### [Method 1] Use JsonRecyclerView
+Add `JsonRecyclerView` in XML layout file:
 
-  Add `JsonRecyclerView` in XML layout file:
-  ```xml
-  <co.pokeum.jsonviewer.xml.JsonRecyclerView
-    android:id="@+id/jsonViewer"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:text="{PUT_YOUR_JSON_STRING}" />
-  ```
+```xml
+<co.pokeum.jsonviewer.xml.JsonRecyclerView
+  android:id="@+id/jsonViewer"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  app:text="{PUT_YOUR_JSON_STRING}" />
+```
 
-  Change `JsonRecyclerView` text from the code:
-  ```kotlin
-  findViewById<JsonRecyclerView>(R.id.jsonViewer).setText("{PUT_YOUR_JSON_STRING}")
-  ```
+Change `JsonRecyclerView` text from the code:
 
-  #### [Method 2] Use RecyclerView
+```kotlin
+findViewById<JsonRecyclerView>(R.id.jsonViewer).setText("{PUT_YOUR_JSON_STRING}")
+```
 
-  Add `RecyclerView` in XML layout file:
-  ```xml
-  <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/jsonViewer"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:ignore="SpeakableTextPresentCheck"
-    tools:listitem="@layout/item_json_object" />
-  ```
+### Use RecyclerView to display JSON
+
+Add `RecyclerView` in XML layout file:
+
+```xml
+<androidx.recyclerview.widget.RecyclerView
+  android:id="@+id/jsonViewer"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+  tools:ignore="SpeakableTextPresentCheck"
+  tools:listitem="@layout/item_json_object" />
+```
   
-  Set Adapter in `RecyclerView`:
-  ```kotlin
-  val recyclerView = findViewById<RecyclerView>(R.id.jsonViewer)
-  recyclerView.adapter = JsonViewerAdapter(/* JsonElement */)
-  ```
+Set Adapter in `RecyclerView`:
 
-- ## <a id="advance"> Advance
+```kotlin
+val recyclerView = findViewById<RecyclerView>(R.id.jsonViewer)
+recyclerView.adapter = JsonViewerAdapter(/* JsonElement */)
+```
 
-  ### JsonParser - Sort JSON
+## Advance
 
-  **Example - Alphabetically**
-  ```kotlin
-  JsonParser.Builder()
-    .setComparator(compareBy { it.key })
-    .build()
-  ```
+### JsonParser - Sort JSON
 
-  ### JsonElement - Save and Restore
+**Example - Alphabetically**
 
-  Save and Restore Data on Configuration Changed in Android using Bundle
+```kotlin
+JsonParser.Builder()
+  .setComparator(compareBy { it.key })
+  .build()
+```
+
+### JsonElement - Save and Restore
+
+Save and Restore Data on Configuration Changed in Android using Bundle
     
-  ```kotlin
-  class YourActivity : AppCompatActivity() {
+```kotlin
+class YourActivity : AppCompatActivity() {
 
-    private var jsonElement: JsonElement? = null
+  private var jsonElement: JsonElement? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-      // ...
+  override fun onCreate(savedInstanceState: Bundle?) {
+    // ...
   
-      if (savedInstanceState != null) {
-        jsonElement = savedInstanceState.getParcelable("JSON_ELEMENT_KEY")  /* Restore */
-      }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putParcelable("JSON_ELEMENT_KEY", jsonElement)  /* Save */
+    if (savedInstanceState != null) {
+      jsonElement = savedInstanceState.getParcelable("JSON_ELEMENT_KEY")  /* Restore */
     }
   }
-  ```
 
-## <a id="styles"> Custom Styles
+  override fun onSaveInstanceState(outState: Bundle) {
+    super.onSaveInstanceState(outState)
+    outState.putParcelable("JSON_ELEMENT_KEY", jsonElement)  /* Save */
+  }
+}
+```
+
+## Custom Styles
 
 ### Color
 
