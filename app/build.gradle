@@ -17,7 +17,7 @@ android {
     buildToolsVersion   BUILD_TOOL_VERSION
 
     defaultConfig {
-        applicationId       "kr.pokeum.jsonviewer.app"
+        applicationId       "co.pokeum.jsonviewer.app"
         minSdkVersion       MIN_SDK_VERSION
         targetSdkVersion    TARGET_SDK_VERSION
         versionCode         VERSION_CODE
@@ -55,11 +55,8 @@ android {
 }
 
 dependencies {
-
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-
-//    implementation(project(":jsonviewer"))
-    implementation 'com.github.pokeum:jsonviewer-xml:0.0.2'
+    implementation(project(":jsonviewer"))
 
     implementation stdlib.kotlin
     implementation androidx.core
@@ -73,7 +70,4 @@ dependencies {
     implementation platform(firebase.bom)
 
     testImplementation test.junit
-
-    androidTestImplementation androidTest.junit
-    androidTestImplementation androidTest.espressoCore
 }

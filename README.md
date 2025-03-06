@@ -27,7 +27,7 @@ https://github.com/pokeum/jsonviewer-xml/assets/102505472/e2f260f0-cc28-4607-9ec
 **Easiest way to format Json String**
 
 ```xml
-<kr.pokeum.jsonviewer_xml.JsonRecyclerView
+<co.pokeum.jsonviewer.xml.JsonRecyclerView
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   app:text="{PUT_YOUR_JSON_STRING}" />
@@ -86,7 +86,7 @@ implementation 'com.github.pokeum:jsonviewer-xml:0.0.2'
 
   Add `JsonRecyclerView` in XML layout file:
   ```xml
-  <kr.pokeum.jsonviewer_xml.JsonRecyclerView
+  <co.pokeum.jsonviewer.xml.JsonRecyclerView
     android:id="@+id/jsonViewer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -170,7 +170,7 @@ implementation 'com.github.pokeum:jsonviewer-xml:0.0.2'
 #### Use JsonRecyclerView
 
   ```xml
-  <kr.pokeum.jsonviewer_xml.JsonRecyclerView
+  <co.pokeum.jsonviewer.xml.JsonRecyclerView
     ...
     app:keyColor="@color/key_color"
     app:valueColor="@color/value_color"

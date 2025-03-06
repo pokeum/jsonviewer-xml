@@ -12,7 +12,7 @@
         android:padding="24dp"
         android:orientation="vertical">
 
-<!--        <kr.pokeum.jsonviewer_xml.JsonRecyclerView-->
+<!--        <co.pokeum.jsonviewer.xml.JsonRecyclerView-->
 <!--            android:id="@+id/jsonViewer"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->

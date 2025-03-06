@@ -2,14 +2,14 @@
   "project_info": {
     "project_number": "1019350039203",
     "project_id": "jsonviewer-86f73",
-    "storage_bucket": "jsonviewer-86f73.appspot.com"
+    "storage_bucket": "jsonviewer-86f73.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1019350039203:android:9cd8b741a970ae86e2dd16",
+        "mobilesdk_app_id": "1:1019350039203:android:54eb2638c6d6c410e2dd16",
         "android_client_info": {
-          "package_name": "kr.pokeum.jsonviewer.app"
+          "package_name": "co.pokeum.jsonviewer.app"
         }
       },
       "oauth_client": [],
