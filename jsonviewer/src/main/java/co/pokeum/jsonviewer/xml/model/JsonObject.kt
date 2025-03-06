@@ -6,16 +6,26 @@ import java.lang.StringBuilder
 class JsonObject(
     key: String,
     val elements: MutableList<JsonElement>
-) : JsonElement(key) {
+) : JsonElement(key), Expandable {
 
-    private var expanded = false
+    override var expanded: Boolean = false
 
-    fun isExpanded(): Boolean {
-        return expanded
+    override fun expandAll() {
+        expanded = true
+        for (element in elements) {
+            if (element is Expandable) {
+                element.expandAll()
+            }
+        }
     }
 
-    internal fun setExpanded(value: Boolean) {
-        expanded = value
+    override fun collapseAll() {
+        expanded = false
+        for (element in elements) {
+            if (element is Expandable) {
+                element.collapseAll()
+            }
+        }
     }
 
     constructor(inParcel: Parcel) : this(

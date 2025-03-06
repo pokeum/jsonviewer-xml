@@ -15,6 +15,7 @@ import co.pokeum.jsonviewer.xml.viewholder.JsonNullViewHolder
 import co.pokeum.jsonviewer.xml.viewholder.JsonObjectViewHolder
 import co.pokeum.jsonviewer.xml.viewholder.JsonPrimitiveViewHolder
 
+@Suppress("JoinDeclarationAndAssignment")
 @SuppressLint("NotifyDataSetChanged")
 class JsonViewerAdapter(
     jsonElement: JsonElement? = null,
@@ -38,6 +39,24 @@ class JsonViewerAdapter(
     fun setElements(elements: List<JsonElement>) {
         this.elements.clear()
         this.elements.addAll(elements)
+        notifyDataSetChanged()
+    }
+
+    override fun expandAll() {
+        for (element in elements) {
+            if (element is Expandable) {
+                element.expandAll()
+            }
+        }
+        notifyDataSetChanged()
+    }
+
+    override fun collapseAll() {
+        for (element in elements) {
+            if (element is Expandable) {
+                element.collapseAll()
+            }
+        }
         notifyDataSetChanged()
     }
 

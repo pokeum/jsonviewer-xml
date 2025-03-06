@@ -5,8 +5,8 @@ import co.pokeum.jsonviewer.xml.util.JsonViewerColor
 
 abstract class BaseJsonViewerAdapter<VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>()
 {
-//    abstract fun expandAll()
-//    abstract fun collapseAll()
+    abstract fun expandAll()
+    abstract fun collapseAll()
 
     fun setKeyColor(color: JsonViewerColor) { KEY_COLOR = color }
     fun setValueColor(color: JsonViewerColor) { VALUE_COLOR = color }

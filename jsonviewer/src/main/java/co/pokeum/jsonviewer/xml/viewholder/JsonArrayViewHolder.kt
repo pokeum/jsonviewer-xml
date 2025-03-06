@@ -20,8 +20,8 @@ internal class JsonArrayViewHolder(
     init {
         binding.headerLayout.setOnClickListener {
             target?.let { target ->
-                target.setExpanded(!target.isExpanded())
-                expandableUI(target.isExpanded())
+                target.toggleExpanded()
+                expandableUI(target.expanded)
             }
         }
         childAdapter = JsonViewerAdapter()
@@ -32,7 +32,7 @@ internal class JsonArrayViewHolder(
     @SuppressLint("SetTextI18n")
     fun bind(jsonArray: JsonArray) {
         target = jsonArray
-        expandableUI(jsonArray.isExpanded())
+        expandableUI(jsonArray.expanded)
         binding.keyLabel.text = "\"${jsonArray.key}\""
         childAdapter.setElements(jsonArray.elements)
 
