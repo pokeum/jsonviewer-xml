@@ -147,6 +147,26 @@ class YourActivity : AppCompatActivity() {
 }
 ```
 
+### Expand All & Collapse All
+
+#### Use JsonRecyclerView
+
+```kotlin
+findViewById<JsonRecyclerView>(R.id.jsonViewer).expandAll()
+findViewById<JsonRecyclerView>(R.id.jsonViewer).collapseAll()
+```
+
+#### Use RecyclerView
+
+```kotlin
+val recyclerView = findViewById<RecyclerView>(R.id.jsonViewer)
+recyclerView.adapter = JsonViewerAdapter(/* JsonElement */)
+
+val jsonViewerAdapter = recyclerView.adapter as JsonViewerAdapter
+jsonViewerAdapter.expandAll()
+jsonViewerAdapter.collapseAll()
+```
+
 ## Custom Styles
 
 ### Color
