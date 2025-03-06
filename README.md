@@ -17,8 +17,8 @@ A lightweight package that will read JSON data, expand and collapse JSON view ac
 ---
 
 <div align="center">
-  
-https://github.com/pokeum/jsonviewer-xml/assets/102505472/e2f260f0-cc28-4607-9ec4-d9744ec9330c
+
+https://github.com/user-attachments/assets/2e344686-020a-4653-ab9b-dbcb68c254cd
 
 </div>
 
