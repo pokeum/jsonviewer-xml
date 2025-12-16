@@ -6,13 +6,14 @@ plugins {
 }
 
 def majorNumber = 1
-def minorNumber = 1
+def minorNumber = 2
 def patchNumber = 0
 
 def VERSION_NAME = "$majorNumber.$minorNumber.$patchNumber"
 def VERSION_CODE = majorNumber * 100000 + minorNumber * 1000 + patchNumber * 10
 
 android {
+    namespace           "co.pokeum.app"
     compileSdkVersion   COMPILE_SDK_VERSION
     buildToolsVersion   BUILD_TOOL_VERSION
 
