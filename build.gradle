@@ -3,14 +3,14 @@ buildscript {
     ext {
         JAVA_COMPILE_VERSION        = JavaVersion.VERSION_1_8
         JVM_TARGET                  = JavaVersion.VERSION_1_8.toString()
-        BUILD_TOOL_VERSION          = "30.0.3"
-        COMPILE_SDK_VERSION         = 33
-        TARGET_SDK_VERSION          = 33
+        BUILD_TOOL_VERSION          = "35.0.0"
+        COMPILE_SDK_VERSION         = 35
+        TARGET_SDK_VERSION          = 35
         MIN_SDK_VERSION             = 19
 
         versions = [
-                androidGradlePlugin                     : "4.2.2",
-                kotlinGradlePlugin                      : "1.6.10",
+                androidGradlePlugin                     : "8.13.2",
+                kotlinGradlePlugin                      : "2.2.21",
                 googleServiceGradlePlugin               : "4.3.10",
                 firebaseAppDistributionGradlePlugin     : "4.0.0",
                 kotlin                                  : "1.6.10",
