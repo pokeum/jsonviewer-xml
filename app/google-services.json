@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1019350039203:android:54eb2638c6d6c410e2dd16",
+        "mobilesdk_app_id": "1:1019350039203:android:82bfe1a7d1eabd63e2dd16",
         "android_client_info": {
-          "package_name": "co.pokeum.jsonviewer.app"
+          "package_name": "kr.pokeum.jsonviewer.app"
         }
       },
       "oauth_client": [],
