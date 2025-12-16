@@ -18,13 +18,20 @@ android {
     buildToolsVersion   BUILD_TOOL_VERSION
 
     defaultConfig {
-        applicationId       "co.pokeum.jsonviewer.app"
+        applicationId       "kr.pokeum.jsonviewer.app"
         minSdkVersion       MIN_SDK_VERSION
         targetSdkVersion    TARGET_SDK_VERSION
         versionCode         VERSION_CODE
         versionName         VERSION_NAME
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // https://developer.android.com/build/publish-library/configure-pub-variants
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
     }
 
     signingConfigs {

@@ -23,8 +23,6 @@ jobs:
 
       BUILD_CONFIG_FILE_PATH: ${{ 'app/build/generated/source/buildConfig/release/kr/pokeum/app/BuildConfig.java' }}
 
-      SLACK_CHANNEL: ${{ 'jsonviewer-release' }}
-
     steps:
       - name: clone repository
         uses: actions/checkout@v3
@@ -86,7 +84,6 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          channel-id: '${{ env.SLACK_CHANNEL }}'
           template: './slack/success.json'
           version: ${{ steps.read_version.outputs.version }}
         if: success()
@@ -96,7 +93,5 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          channel-id: '${{ env.SLACK_CHANNEL }}'
           template: './slack/fail.json'
-          version: ${{ steps.read_version.outputs.version }}
         if: failure()

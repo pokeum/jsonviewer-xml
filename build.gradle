@@ -11,7 +11,7 @@ buildscript {
         versions = [
                 androidGradlePlugin                     : "8.13.2",
                 kotlinGradlePlugin                      : "2.2.21",
-                googleServiceGradlePlugin               : "4.3.10",
+                googleServiceGradlePlugin               : "4.4.4",
                 firebaseAppDistributionGradlePlugin     : "4.0.0",
                 kotlin                                  : "1.6.10",
                 coreKtx                                 : "1.7.0",

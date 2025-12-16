@@ -13,9 +13,8 @@
         {
           "type": "section",
           "text": {
-            "type": "plain_text",
-            "text": "version {{ version }} :cry:",
-            "emoji": true
+            "type": "mrkdwn",
+            "text": "<{{ actions_url }}|:link: View Failed Action>"
           }
         }
       ]
