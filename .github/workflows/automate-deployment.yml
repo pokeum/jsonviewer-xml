@@ -21,7 +21,7 @@ jobs:
       GOOGLE_CLOUD_JSON_KEY: ${{ secrets.GOOGLE_CLOUD_JSON_KEY }}
       JSON_KEY_PATH: ${{ 'google-cloud-json-key.json' }}            # fastlane/Appfile
 
-      BUILD_CONFIG_FILE_PATH: ${{ 'app/build/generated/source/buildConfig/release/kr/pokeum/app/BuildConfig.java' }}
+      BUILD_CONFIG_FILE_PATH: ${{ 'app/build/generated/source/buildConfig/release/co/pokeum/app/BuildConfig.java' }}
 
     steps:
       - name: clone repository

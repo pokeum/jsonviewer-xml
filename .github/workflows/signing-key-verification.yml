@@ -33,4 +33,4 @@ jobs:
       - name: Signing Key Verification
         run: |
           ./gradlew clean
-          ./gradlew app:assembleRelease
+          ./gradlew app:bundleRelease

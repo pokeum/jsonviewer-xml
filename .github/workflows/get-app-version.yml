@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      BUILD_CONFIG_FILE_PATH: ${{ 'app/build/generated/source/buildConfig/debug/kr/pokeum/app/BuildConfig.java' }}
+      BUILD_CONFIG_FILE_PATH: ${{ 'app/build/generated/source/buildConfig/release/co/pokeum/app/BuildConfig.java' }}
  
     steps:
       - name: clone repo
@@ -22,7 +22,7 @@ jobs:
           cache: 'gradle'
 
       - name: build jsonviewer app
-        run: ./gradlew app:assembleDebug
+        run: ./gradlew app:bundleRelease
 
       - name: get and save version
         run: cat "$BUILD_CONFIG_FILE_PATH" | grep VERSION_NAME | sed 's/[^[:digit:].]//g' > VERSION
